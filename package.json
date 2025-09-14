@@ -1,0 +1,30 @@
+{
+  "name": "tiny-utils",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^4.9.0",
+    "@prisma/client": "^6.16.1",
+    "bcrypt": "^6.0.0",
+    "date-fns": "^4.1.0",
+    "nanoid": "^5.1.5",
+    "next": "15.5.2",
+    "pg": "^8.16.3",
+    "qrcode": "^1.5.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.2",
+    "prisma": "^6.16.1"
+  }
+}
