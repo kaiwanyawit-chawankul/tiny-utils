@@ -1,5 +1,5 @@
-import { getSession } from '../../../lib/auth.js';
-import { saveUrl } from '../../../lib/db.js';
+import { getSession } from '@lib/auth.js';
+import { saveUrl } from '@lib/db.js';
 import QRCode from 'qrcode';
 
 export default async function handler(req, res) {

@@ -1,7 +1,7 @@
 // src/pages/api/shorten/history.js
 
-import { getByUser } from '../../../lib/db';
-import { getSession } from '../../../lib/auth';
+import { getByUser } from '@lib/db';
+import { getSession } from '@lib/auth';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
