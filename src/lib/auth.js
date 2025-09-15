@@ -10,6 +10,8 @@ module.exports = {
     //   return null;
     // }
     const userId = "user123"; // Mock user ID for demonstration
-    return { id: userId };
+    return { id: userId,
+      user: { sub: userId }
+     };
   }
 };

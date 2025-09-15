@@ -1,5 +1,5 @@
 import { withPageAuthRequired, getSession } from '@auth0/nextjs-auth0';
-import { getByUser } from '../lib/db';
+import { getByUser } from '@lib/db';
 
 function Dashboard({ urls }) {
   return (

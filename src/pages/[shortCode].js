@@ -1,6 +1,6 @@
 // src/pages/[shortCode].js
 
-import { getByShortCode } from '../lib/db';
+import { getByShortCode } from '@lib/db';
 
 export async function getServerSideProps(context) {
   const { shortCode } = context.params;

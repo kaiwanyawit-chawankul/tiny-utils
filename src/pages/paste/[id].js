@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import bcrypt from 'bcryptjs';
-import { prisma } from '../../lib/prisma';
+import { prisma } from '@lib/prisma';
 
 export async function getServerSideProps({ params, req, res }) {
   const paste = await prisma.paste.findUnique({ where: { id: params.id } });
