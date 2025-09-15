@@ -15,7 +15,6 @@
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "date-fns": "^4.1.0",
-    "db": "link:src/generated/prisma",
     "nanoid": "^5.1.5",
     "next": "15.5.2",
     "pg": "^8.16.3",
