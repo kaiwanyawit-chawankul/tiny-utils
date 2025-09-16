@@ -2,8 +2,9 @@
 // import { getByUser } from '@lib/db';
 import { getSession } from '@lib/auth';
 import { getByUser } from '@lib/db';
+import { getPastesByUser } from '@lib/pasteDb';
 
-export default function Dashboard({ urls }) {
+export default function Dashboard({ urls, pastes }) {
   // const urls = [{
   //   shortCode: 'abc123',
   //   originalUrl: 'https://example.com',
@@ -12,6 +13,19 @@ export default function Dashboard({ urls }) {
 
   return (
     <div style={{ padding: '2rem' }}>
+      <h1>Your Pastes</h1>
+      <ul style={{ marginTop: '1rem' }}>
+        {pastes.map(paste => (
+          <li key={paste.id}>
+            <a href={`/${paste.id}`} target="_blank" rel="noreferrer">
+              {paste.id}
+            </a>
+            <span style={{ marginLeft: '1rem', color: '#888' }}>
+              {new Date(paste.createdAt).toLocaleString()}
+            </span>
+          </li>
+        ))}
+      </ul>
       <h1>Your Shortened URLs</h1>
       <ul style={{ marginTop: '1rem' }}>
         {urls.map(url => (
@@ -43,6 +57,7 @@ export async function getServerSideProps(context) {
 
   const userId = session.user.sub;
   const urlsFromDb = await getByUser(userId);
+  const pastesFromDb = await getPastesByUser(userId);
 
   // Convert Date to ISO string
   const urls = urlsFromDb.map(url => ({
@@ -52,7 +67,14 @@ export async function getServerSideProps(context) {
       : url.createdAt,
   }));
 
+  const pastes = pastesFromDb.map(url => ({
+    ...url,
+    createdAt: url.createdAt instanceof Date
+      ? url.createdAt.toISOString()
+      : url.createdAt,
+  }));
+
   return {
-    props: { urls },
+    props: { urls, pastes },
   };
 }

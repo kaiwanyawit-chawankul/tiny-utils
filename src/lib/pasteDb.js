@@ -6,7 +6,8 @@ export async function savePaste({ data, userId }) {
   const {content} = data;
   return await prisma.paste.create({
     data: {
-      content
+      content,
+      userId
     },
   });
 }
