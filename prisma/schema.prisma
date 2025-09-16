@@ -16,18 +16,31 @@ datasource db {
 }
 
 model Paste {
-  id          String   @id @default(uuid())
-  content     String
-  password    String?  // hashed password
-  burnAfterRead Boolean @default(false)
-  expiresAt   DateTime?
-  createdAt   DateTime @default(now())
+  id             String   @id @default(uuid())
+  content        String
+  password       String?  // hashed password
+  burnAfterRead  Boolean  @default(false)
+  expiresAt      DateTime?
+  createdAt      DateTime @default(now())
+
+  userId         String?
+  user           User?     @relation(fields: [userId], references: [id])
 }
 
 model ShortUrl {
   id          String   @id @default(cuid())
   shortCode   String   @unique
   originalUrl String
-  userId      String
+  userId      String?
+  user           User?     @relation(fields: [userId], references: [id])
   createdAt   DateTime @default(now())
+}
+
+model User {
+  id     String   @id @default(uuid())
+  email  String   @unique
+  name   String?
+
+  pastes Paste[]
+  shortUrls ShortUrl[]
 }
