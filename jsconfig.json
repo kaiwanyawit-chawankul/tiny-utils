@@ -4,6 +4,7 @@
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
       "@lib/*": ["./src/lib/*"],
+      "@generated/*": ["./src/generated/*"],
       "@/*": ["./src/*"]
     }
   }

@@ -1,5 +1,5 @@
 // src/lib/prisma.js
-import { PrismaClient } from 'db';
+import { PrismaClient } from '@generated/prisma/client';
 
 const globalForPrisma = globalThis;
 
