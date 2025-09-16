@@ -19,7 +19,7 @@ export default function NewPastePage() {
 
     const data = await res.json();
     if (res.ok) {
-      router.push(`/paste/${data.paste.id}`);
+      router.push(`/paste/${data.id}`);
     } else {
       alert(data.error || 'Failed to create paste.');
     }

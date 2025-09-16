@@ -2,11 +2,11 @@
 import { prisma } from './prisma';
 
 // Save a new paste
-export async function savePaste({ content, userId }) {
+export async function savePaste({ data, userId }) {
+  const {content} = data;
   return await prisma.paste.create({
     data: {
-      content,
-      userId,
+      content
     },
   });
 }
