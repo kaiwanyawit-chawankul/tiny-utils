@@ -31,8 +31,11 @@ export default function Dashboard({ urls, pastes }) {
         {urls.map(url => (
           <li key={url.shortCode}>
             <a href={`/${url.shortCode}`} target="_blank" rel="noreferrer">
-              {url.originalUrl}
+              {`${url.shortCode}`}
             </a>
+            <span style={{ marginLeft: '1rem', color: '#888' }}>
+              {url.originalUrl}
+            </span>
             <span style={{ marginLeft: '1rem', color: '#888' }}>
               {new Date(url.createdAt).toLocaleString()}
             </span>
