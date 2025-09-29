@@ -17,7 +17,7 @@ export default function Dashboard({ urls, pastes }) {
       <ul style={{ marginTop: '1rem' }}>
         {pastes.map(paste => (
           <li key={paste.id}>
-            <a href={`/${paste.id}`} target="_blank" rel="noreferrer">
+            <a href={`/paste/${paste.id}`} target="_blank" rel="noreferrer">
               {paste.id}
             </a>
             <span style={{ marginLeft: '1rem', color: '#888' }}>
