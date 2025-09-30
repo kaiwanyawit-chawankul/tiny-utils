@@ -3,6 +3,8 @@
 import { getSession } from '@lib/auth';
 import { getByUser } from '@lib/db';
 import { getPastesByUser } from '@lib/pasteDb';
+import Profile from '@components/Profile';
+
 
 export default function Dashboard({ urls, pastes }) {
   // const urls = [{
@@ -12,7 +14,9 @@ export default function Dashboard({ urls, pastes }) {
   // }]; // Placeholder for URLs fetched from the database
 
   return (
+
     <div style={{ padding: '2rem' }}>
+      <Profile />
       <h1>Your Pastes</h1>
       <ul style={{ marginTop: '1rem' }}>
         {pastes.map(paste => (
