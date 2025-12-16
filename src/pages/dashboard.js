@@ -61,8 +61,10 @@ export async function getServerSideProps(context) {
       },
     };
   }
+  console.log('User session:', session);
+  const userId = session.user?.id;
+  console.log('Authenticated user ID:', userId);
 
-  const userId = session.user.sub;
   const urlsFromDb = await getByUser(userId);
   const pastesFromDb = await getPastesByUser(userId);
 
