@@ -62,7 +62,8 @@ export async function getServerSideProps(context) {
     };
   }
   console.log('User session:', session);
-  const userId = session.user?.id;
+  const userId = session.id;
+
   console.log('Authenticated user ID:', userId);
 
   const urlsFromDb = await getByUser(userId);
